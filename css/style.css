@@ -185,3 +185,21 @@ a {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
 }
+.get-auth-code {
+  position: absolute;
+  display: block;
+  right: 15px;
+  width: 100px;
+  height: 32px;
+  text-align: center;
+  padding: 0 10px;
+  float: none;
+  top: 3px;
+  background-color: #eef2ec;
+  border: none;
+  border-radius: 15px;
+}
+.get-auth-code:enabled:active {
+  color: #fff;
+  background-color: #53ab38;
+}
