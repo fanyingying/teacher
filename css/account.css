@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.ui-page-login {
+  background-color: #fafafa;
+}
+.ui-page-login .mui-content {
+  background-color: #fafafa;
+}
+.ui-page-login .logo {
+  text-align: center;
+  padding: 40px 0;
+}
+.ui-page-login .logo img {
+  width: 82px;
+}
+.ui-page-login .mui-input-group {
+  background-color: transparent;
+  margin-top: 10px;
+}
+.ui-page-login .mui-input-group:first-child {
+  margin-top: 20px;
+}
+.ui-page-login .mui-input-group:before,
+.ui-page-login .mui-input-group:after {
+  height: 0;
+}
+.ui-page-login .mui-input-group label {
+  width: 22%;
+}
+.ui-page-login .mui-input-group input {
+  padding-left: 40px;
+}
+.ui-page-login .mui-input-row:after {
+  right: 15px;
+}
+.ui-page-login .mui-input-row [class^=icon-] {
+  line-height: 1.1;
+  padding: 10px 15px;
+  font-size: 20px;
+  color: #50a934;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ui-page-login .mui-content-padded {
+  margin-top: 25px;
+}
+.ui-page-login .mui-btn {
+  padding: 10px;
+}
+.ui-page-login .link-area {
+  margin-top: 25px;
+  text-align: left;
+  font-size: 15px;
+}
+.ui-page-login .link-area a {
+  display: block;
+  width: 50%;
+}
+.ui-page-login .link-area #forgetPassword {
+  text-align: right;
+}
+.ui-page-login .link-area #forgetPassword i {
+  margin-right: 4px;
+}

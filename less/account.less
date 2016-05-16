@@ -1,0 +1,69 @@
+@charset "UTF-8"; //颜色变量
+@font-color-green: #50a934; //  ========== 
+//  = 用户相关-登录注册 = 
+//  ========== 
+.ui-page-login {
+    background-color: #fafafa;
+    .mui-content {
+        background-color: #fafafa;
+    }
+    .logo {
+        text-align: center;
+        padding: 40px 0;
+        img {
+            width: 82px;
+        }
+    }
+    .mui-input-group {
+        background-color: transparent;
+        margin-top: 10px;
+        &:first-child {
+            margin-top: 20px;
+        }
+        &:before,
+        &:after {
+            height: 0;
+        }
+        label {
+            width: 22%;
+        }
+        input {
+            padding-left: 40px;
+        }
+    }
+    .mui-input-row {
+        &:after {
+            right: 15px;
+        }
+    }
+    .mui-input-row [class^=icon-] {
+        line-height: 1.1;
+        padding: 10px 15px;
+        font-size: 20px;
+        color: @font-color-green;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .mui-content-padded {
+        margin-top: 25px;
+    }
+    .mui-btn {
+        padding: 10px;
+    }
+    .link-area {
+        margin-top: 25px;
+        text-align: left;
+        font-size: 15px;
+        a {
+            display: block;
+            width: 50%;
+        }
+        #forgetPassword {
+            text-align: right;
+            i {
+                margin-right: 4px;
+            }
+        }
+    }
+}
