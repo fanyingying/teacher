@@ -205,6 +205,12 @@
 .icon-qun:before {
   content: "\e63e";
 }
+.icon-arrowup:before {
+  content: "\e63b";
+}
+.icon-arrowdown:before {
+  content: "\e63c";
+}
 body {
   width: 100%;
   height: 100%;
