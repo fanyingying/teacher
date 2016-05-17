@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui/mui.min.js"></script>
+
+    <script type="text/javascript" src="js/city.data-3.js" ></script>
+    <script type="text/javascript" src="js/mui.picker.min.js" ></script>
+    <script type="text/javascript" src="js/mui.poppicker.js" ></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/classes.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/mui.picker.css" />
+    <link rel="stylesheet" href="css/mui.poppicker.css" />
+    <script type="text/javascript" charset="UTF-8">
+      	(function($, doc) {
+				$.init();
+				$.ready(function() {
+					//-----------------------------------------
+					//					//级联示例
+					var cityPicker3 = new $.PopPicker({
+						layer: 3
+					});
+					cityPicker3.setData(cityData3);
+					var showCityPickerButton = doc.getElementById('showCityPicker3');
+					var cityResult3 = doc.getElementById('cityResult3');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker3.show(function(items) {
+							showCityPickerButton.innerText = (items[0] || {}).text + "  " + (items[1] || {}).text + "  " + (items[2] || {}).text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+				});
+			})(mui, document);
+      	
+    </script>
+</head>
+<body class="classes">
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">创建学校</h1>
+	</header>
+	
+	<div class="mui-content">
+	    <ul>
+	    	<li class="ul_li_header"><span class="left_line"></span>学校名称</li>
+	    	<li class="ul_li_body">
+	    		<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1">
+					<span class="mui-icon mui-icon-clear mui-hidden"></span>
+					<span class="mui-placeholder">
+						<span class="mui-icon mui-icon-search"></span>
+						<span>请输入学校名称</span>
+					</span>
+					
+				</div>
+				<span class="mui-btn mui-btn-success">
+					搜索
+				</span>
+	    	</li>
+	    </ul>
+	    <ul>
+	    	<li class="ul_li_header"><span class="left_line"></span>学校学段</li>
+	    	<li class="ul_li_body">
+	    		<div class="mui-input-row mui-radio mui-left">
+					<label>幼儿园</label>
+					<input name="radio1" type="radio" checked="">
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+					<label>小学</label>
+					<input name="radio1" type="radio" checked="">
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+					<label>初中</label>
+					<input name="radio1" type="radio" checked="">
+				</div>
+				<div class="mui-input-row mui-radio mui-left">
+					<label>高中</label>
+					<input name="radio1" type="radio" checked="">
+				</div>
+	    	</li>
+	    </ul>
+	    <ul>
+	    	<li class="ul_li_header"><span class="left_line"></span>所在地区</li>
+	    	<li class="ul_li_body">
+	    		<button id='showCityPicker3' class="mui-btn mui-btn-block" type='button'>请选择省市区</button>
+	    			
+	    	</li>
+	    </ul>
+		<ul>
+	    	<li class="ul_li_header"><span class="left_line"></span>图片<i class="icon-upload"></i></li>
+	    	<li class="ul_li_body">
+	    		<p class="photo_msg">说明：请上传学校照片以供管理员验证，学校门口照片、组织机构代码证等均可。 </p>
+	    	</li>
+	    </ul>
+	    <div class="mui-content-padded">
+	    	<button id="login" class="mui-btn mui-btn-block mui-btn-primary">完成创建</button>
+	    	
+	    </div>
+
+	</div>
+</body>
+</html>

@@ -151,6 +151,8 @@
 .icon-create:before {
   content: "\e62c";
 }
+.icon-arrowup:before { content: "\e63b"; }
+.icon-arrowdown:before { content: "\e63c"; }
 body {
   width: 100%;
   height: 100%;
