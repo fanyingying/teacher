@@ -33,7 +33,7 @@
 				/*console.log(type);
 				return callback('用户名或密码错误');*/
 			}
-		}); 
+		});
 	};
 
 	owner.createState = function(name, callback) {
@@ -52,6 +52,7 @@
 		regInfo = regInfo || {};
 		regInfo.account = regInfo.account || '';
 		regInfo.password = regInfo.password || '';
+
 		if (regInfo.account.length < 5) {
 			return callback('用户名最短需要 5 个字符');
 		}
@@ -66,6 +67,54 @@
 		localStorage.setItem('$users', JSON.stringify(users));
 		return callback();
 	};
+
+	/**
+	 * 验证手机号码是否可被注册
+	 * */
+	owner.checkUser = function(regInfo, callback) {
+		callback = callback || $.noop;
+		regInfo = regInfo || {};
+		regInfo.account = regInfo.account || '';
+		//验证手机号码
+		if (!/^1(3|5|7|8|4)\d{9}$/.test(regInfo.account)) {
+			return callback('请输入有效的手机号码！');
+		}
+		mui.ajax('', {
+			data: regInfo,
+			dataType: 'json', //服务器返回json格式数据
+			type: 'post', //HTTP请求类型
+			timeout: 10000, //超时时间设置为10秒；
+			success: function(data) {
+				//服务器返回响应，根据响应结果，分析账户是否可以注册；
+
+			},
+			error: function(xhr, type, errorThrown) {
+				//异常处理；
+				console.log(type);
+				return callback('该手机已被注册');
+			}
+		});
+	}
+
+	/**
+	 *发送验证码 
+	 */
+	owner.sendCode = function(btnCode, second) {
+		second = second || 60;
+		btnCode.setAttribute("disabled", "disabled");
+		var interval = setInterval(function() {
+			user.sendCode(btnCode);
+			if (second < 1) {
+				clearInterval(interval);
+				btnCode.removeAttribute("disabled");
+				btnCode.innerHTML = "获取验证码";
+				return;
+			}
+			btnCode.innerHTML = '{0}秒后重新发送'.format(second);
+			second--;
+		}, 1000);
+		mui.toast("发送成功");
+	}
 
 	/**
 	 * 获取当前状态
@@ -94,14 +143,36 @@
 	/**
 	 * 找回密码
 	 **/
-	owner.forgetPassword = function(email, callback) {
+	owner.forgetPassword = function(regInfo, callback) {
 		callback = callback || $.noop;
-		if (!checkEmail(email)) {
-			return callback('邮箱地址不合法');
-		}
-		return callback(null, '新的随机密码已经发送到您的邮箱，请查收邮件。');
+		regInfo = regInfo || {};
+		regInfo.account = regInfo.account || '';
+		regInfo.code = regInfo.code || '';
+		regInfo.password = regInfo.password || '';
+		//TODO 用户输入验证
+		mui.ajax('', {
+			data: regInfo,
+			dataType: 'json', //服务器返回json格式数据
+			type: 'post', //HTTP请求类型
+			timeout: 10000, //超时时间设置为10秒；
+			success: function(data) {
+				//服务器返回响应，根据响应结果，分析账户是否可以重置密码；
+				$.openWindow({
+					url: 'reset_password.html',
+					id: 'login',
+					show: {
+						aniShow: 'pop-in'
+					}
+				});
+			},
+			error: function(xhr, type, errorThrown) {
+				//异常处理；
+				console.log(type);
+				return callback('错误提示');
+			}
+		});
 	};
-
+ 
 	/**
 	 * 获取应用本地配置
 	 **/

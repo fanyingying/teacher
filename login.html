@@ -46,6 +46,10 @@
 					statusBarBackground: '#fafafa' 
 				});
 				$.ready(function() {
+					if(mui.os.wechat){ 
+						//微信客户端隐藏顶部导航栏
+					   mui('header.mui-bar')[0].classList.add('hide');
+					} 
 					var settings = user.getSettings();
 					var state = user.getState();
 					var toMain = function() {
@@ -114,7 +118,7 @@
 					//点击忘记密码
 					forgetButton.addEventListener('tap', function(event) {
 						$.openWindow({
-							url: 'forget_password.html',
+							url: 'user/forget_password.html',
 							id: 'forget_password',
 							preload: true,
 							show: {

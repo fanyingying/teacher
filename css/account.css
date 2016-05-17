@@ -28,6 +28,10 @@
 }
 .ui-page-login .mui-input-group input {
   padding-left: 40px;
+  margin-top: 30px;
+}
+.ui-page-login .mui-input-row {
+  height: 70px;
 }
 .ui-page-login .mui-input-row:after {
   right: 15px;
@@ -39,7 +43,7 @@
   color: #50a934;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 28px;
 }
 .ui-page-login .mui-content-padded {
   margin-top: 25px;
@@ -61,4 +65,22 @@
 }
 .ui-page-login .link-area #forgetPassword i {
   margin-right: 4px;
+}
+.ui-page-login .mui-input-row .mui-input-clear ~ .mui-icon-clear,
+.ui-page-login .mui-input-row .mui-input-password ~ .mui-icon-eye,
+.ui-page-login .mui-input-row .mui-input-speech ~ .mui-icon-speech {
+  top: 40px;
+}
+.ui-page-login .tips {
+  text-align: left;
+  padding: 8px 15px;
+}
+.ui-page-login .tips .mui-icon {
+  color: #f36c5a;
+  font-size: 20px;
+}
+.ui-page-login .tips p {
+  display: inline-block;
+  margin-bottom: 0;
+  line-height: 24px;
 }

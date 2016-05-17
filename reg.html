@@ -4,13 +4,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>注册</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
 		<link href="css/account.css" rel="stylesheet" />
 		<style>
-		 
-			
+
 		</style>
 	</head>
 
@@ -20,14 +19,14 @@
 			<h1 class="mui-title">注册</h1>
 		</header>
 		<div class="mui-content">
-			<form class="mui-input-group"> 
+			<form class="mui-input-group">
 				<div class="mui-input-row">
-					<i class="icon-user"></i>
-					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入您的手机号">
+					<i class="icon-phone"></i>
+					<input id='phone' type="text" class="mui-input-clear mui-input" placeholder="请输入您的手机号">
 				</div>
 				<div class="mui-input-row">
 					<i class="icon-message"></i>
-					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请输入验证码">
+					<input id='code' type="text" class="mui-input" placeholder="请输入验证码">
 					<button id="btnCode" type="button" class="get-auth-code">
 						获取验证码
 					</button>
@@ -35,44 +34,51 @@
 				<div class="mui-input-row">
 					<i class="icon-password"></i>
 					<input id='password' type="password" class="mui-input-password mui-input" placeholder="请输入您的密码">
-				</div> 
+				</div>
+				<div class="mui-input-row">
+					<i class="icon-user"></i>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入您的姓名">
+				</div>
 			</form>
-			<div class="mui-content-padded">
-				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+			<div class="tips">
+				<i class="mui-icon mui-icon-info"></i>
+				<p>建议设置真实姓名以便其他老师家长识别</p>
 			</div>
 			<div class="mui-content-padded">
-				<p>注册真实可用，注册成功后的用户可用于登录，但是示例程序并未和服务端交互，用户相关数据仅存储于本地。</p>
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">提交</button>
 			</div>
+			 
 		</div>
 		<script src="js/mui/mui.min.js"></script>
+		<script src="js/utils.js"></script>
 		<script src="js/user.js"></script>
 		<script>
 			(function($, doc) {
-				$.init();
-				$.plusReady(function() {
-					var settings = app.getSettings();
+				$.init({
+					statusBarBackground: '#fafafa'
+				});
+				$.ready(function() {  
+					if(mui.os.wechat){ 
+						//微信客户端隐藏顶部导航栏
+					   mui('header.mui-bar')[0].classList.add('hide');
+					} 
 					var regButton = doc.getElementById('reg');
+					var btnCode = doc.getElementById('btnCode');
 					var accountBox = doc.getElementById('account');
-					var passwordBox = doc.getElementById('password');
-					var passwordConfirmBox = doc.getElementById('password_confirm');
-					var emailBox = doc.getElementById('email');
+					var passwordBox = doc.getElementById('password'); 
+					var codeBox = doc.getElementById('code');
 					regButton.addEventListener('tap', function(event) {
 						var regInfo = {
 							account: accountBox.value,
 							password: passwordBox.value,
-							email: emailBox.value
+							code: codeBox.value
 						};
-						var passwordConfirm = passwordConfirmBox.value;
-						if (passwordConfirm != regInfo.password) {
-							plus.nativeUI.toast('密码两次输入不一致');
-							return;
-						}
-						app.reg(regInfo, function(err) {
+						user.reg(regInfo, function(err) {
 							if (err) {
-								plus.nativeUI.toast(err);
+								mui.toast(err);
 								return;
 							}
-							plus.nativeUI.toast('注册成功');
+							mui.toast('注册成功');
 							$.openWindow({
 								url: 'login.html',
 								id: 'login',
@@ -80,6 +86,19 @@
 									aniShow: 'pop-in'
 								}
 							});
+						});
+					});
+					btnCode.addEventListener('tap', function(event) {
+						var regInfo = {
+							account: accountBox.value 
+						}; 
+						user.checkUser(regInfo, function(err) {
+							if (err) {
+								mui.toast(err);
+								return;
+							}
+							//发送验证码
+							user.sendCode(btnCode);
 						});
 					});
 				});

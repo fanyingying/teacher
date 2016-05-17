@@ -12,6 +12,12 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+}
+.icon-renshu:before {
+  content: "\e632";
 }
 .icon-function:before {
   content: "\e606";
@@ -36,6 +42,12 @@
 }
 .icon-refresh:before {
   content: "\e60e";
+}
+.icon-sex:before {
+  content: "\e634";
+}
+.icon-mail:before {
+  content: "\e635";
 }
 .icon-message:before {
   content: "\e603";
@@ -73,6 +85,9 @@
 .icon-tupian:before {
   content: "\e624";
 }
+.icon-book:before {
+  content: "\e636";
+}
 .icon-notice:before {
   content: "\e60f";
 }
@@ -109,6 +124,9 @@
 .icon-edit:before {
   content: "\e625";
 }
+.icon-phonebook:before {
+  content: "\e639";
+}
 .icon-zhengce:before {
   content: "\e622";
 }
@@ -121,8 +139,20 @@
 .icon-list:before {
   content: "\e616";
 }
+.icon-student:before {
+  content: "\e63d";
+}
 .icon-biyan:before {
   content: "\e605";
+}
+.icon-jifen:before {
+  content: "\e637";
+}
+.icon-qunzu:before {
+  content: "\e63a";
+}
+.icon-click:before {
+  content: "\e630";
 }
 .icon-baoming:before {
   content: "\e617";
@@ -130,17 +160,26 @@
 .icon-banji:before {
   content: "\e60a";
 }
+.icon-phone:before {
+  content: "\e633";
+}
+.icon-lianjie:before {
+  content: "\e631";
+}
+.icon-bumen:before {
+  content: "\e638";
+}
 .icon-user2:before {
   content: "\e60c";
 }
 .icon-ungroup:before {
   content: "\e629";
 }
+.icon-upload2:before {
+  content: "\e62f";
+}
 .icon-change:before {
   content: "\e628";
-}
-.icon-user-add:before {
-  content: "\e62a";
 }
 .icon-user-edit:before {
   content: "\e62b";
@@ -151,6 +190,21 @@
 .icon-create:before {
   content: "\e62c";
 }
+.icon-yaoqing:before {
+  content: "\e62a";
+}
+.icon-jiarubanji:before {
+  content: "\e62e";
+}
+.icon-arrowup:before {
+  content: "\e63b";
+}
+.icon-arrowdown:before {
+  content: "\e63c";
+}
+.icon-qun:before {
+  content: "\e63e";
+}
 body {
   width: 100%;
   height: 100%;
@@ -160,6 +214,10 @@ body {
 }
 a {
   color: #53ab38;
+}
+.hide,
+.hidden {
+  display: none;
 }
 .ui-row-flex {
   display: -webkit-box;
@@ -189,17 +247,109 @@ a {
   position: absolute;
   display: block;
   right: 15px;
-  width: 100px;
   height: 32px;
   text-align: center;
   padding: 0 10px;
   float: none;
-  top: 3px;
+  top: 33px;
   background-color: #eef2ec;
   border: none;
   border-radius: 15px;
+  color: #50a934;
 }
 .get-auth-code:enabled:active {
   color: #fff;
   background-color: #53ab38;
+}
+.get-auth-code:disabled {
+  color: #8e8e93;
+}
+.mui-input-row .mui-input-clear ~ .mui-icon-clear,
+.mui-input-row .mui-input-password ~ .mui-icon-eye,
+.mui-input-row .mui-input-speech ~ .mui-icon-speech {
+  right: 15px;
+}
+.mui-input-row .mui-input-clear ~ .mui-icon-clear.mui-active,
+.mui-input-row .mui-input-password ~ .mui-icon-eye.mui-active,
+.mui-input-row .mui-input-speech ~ .mui-icon-speech.mui-active {
+  color: #308715;
+}
+.mui-bar-tab .mui-tab-item {
+  color: #666;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+  color: #50a934;
+}
+.mui-wechat header.mui-bar {
+  display: none;
+}
+.mui-wechat .mui-bar-nav ~ .mui-content {
+  padding-top: 0;
+}
+.mui-wechat .mui-content > .mui-table-view:first-child {
+  margin-top: 0;
+}
+.mui-student {
+  font-size: 12px;
+  line-height: 1;
+  display: inline-block;
+  padding: 3px 6px;
+  color: #fff;
+  border-radius: 100px;
+  background-color: #b0b0ba;
+  margin: 10px;
+}
+.mui-student.at_school {
+  background-color: #3ecd73;
+}
+.mui-student.leave_school {
+  background-color: #17c3f5;
+}
+.mui-student.ask_for_leave {
+  background-color: #ff7a69;
+}
+.mui-student.cut_school {
+  background-color: #b0b0ba;
+}
+.mui-table-view .mui-media [class^=icon-] {
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  float: left;
+  font-size: 24px;
+  text-align: center;
+  background-color: #53ab38;
+  border-radius: 25px;
+  color: #fff;
+  margin-right: 10px;
+  position: relative;
+}
+.mui-table-view .mui-media [class^=icon-] .mui-badge {
+  font-size: 10px;
+  line-height: 1.4;
+  position: absolute;
+  top: -2px;
+  left: 100%;
+  margin-left: -12px;
+  padding: 1px 5px;
+  color: #fff;
+  background: red;
+}
+.mui-table-view .mui-media .mui-media-time {
+  font-size: 12px;
+  color: #8f8f94;
+  position: absolute;
+  right: 15px;
+  top: 11px;
+}
+.mui-table-view .mui-media .default-avatar {
+  background-color: #efeff4;
+  color: #d4d4dc;
+}
+.mui-table-view .mui-media-object {
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  max-width: 50px;
 }
