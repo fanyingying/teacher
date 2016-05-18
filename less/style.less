@@ -1,0 +1,382 @@
+/* 字体 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.ttf') format("truetype");
+}
+//字体图标设置
+.iconfont,
+[class^=icon-] {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+}
+.icon-renshu:before {
+    content: "\e632";
+}
+.icon-function:before {
+    content: "\e606";
+}
+.icon-yuwen:before {
+    content: "\e61a";
+}
+.icon-refresh2:before {
+    content: "\e618";
+}
+.icon-huaxue:before {
+    content: "\e61b";
+}
+.icon-yingyu:before {
+    content: "\e61c";
+}
+.icon-xuetang:before {
+    content: "\e60b";
+}
+.icon-time:before {
+    content: "\e60d";
+}
+.icon-refresh:before {
+    content: "\e60e";
+}
+.icon-sex:before {
+    content: "\e634";
+}
+.icon-mail:before {
+    content: "\e635";
+}
+.icon-message:before {
+    content: "\e603";
+}
+.icon-xianweijing:before {
+    content: "\e61d";
+}
+.icon-course:before {
+    content: "\e611";
+}
+.icon-xiaoxi:before {
+    content: "\e607";
+}
+.icon-lishi:before {
+    content: "\e61e";
+}
+.icon-diqiuyi:before {
+    content: "\e61f";
+}
+.icon-add:before {
+    content: "\e626";
+}
+.icon-setting:before {
+    content: "\e623";
+}
+.icon-resource:before {
+    content: "\e608";
+}
+.icon-qingjia:before {
+    content: "\e612";
+}
+.icon-password:before {
+    content: "\e601";
+}
+.icon-tupian:before {
+    content: "\e624";
+}
+.icon-book:before {
+    content: "\e636";
+}
+.icon-notice:before {
+    content: "\e60f";
+}
+.icon-faxian:before {
+    content: "\e604";
+}
+.icon-poduchi:before {
+    content: "\e620";
+}
+.icon-wuli:before {
+    content: "\e621";
+}
+.icon-user3:before {
+    content: "\e609";
+}
+.icon-upload:before {
+    content: "\e610";
+}
+.icon-user-setting:before {
+    content: "\e613";
+}
+.icon-kaoqin:before {
+    content: "\e614";
+}
+.icon-score:before {
+    content: "\e615";
+}
+.icon-bell:before {
+    content: "\e619";
+}
+.icon-user:before {
+    content: "\e600";
+}
+.icon-edit:before {
+    content: "\e625";
+}
+.icon-phonebook:before {
+    content: "\e639";
+}
+.icon-zhengce:before {
+    content: "\e622";
+}
+.icon-arrowright:before {
+    content: "\e627";
+}
+.icon-wenhao:before {
+    content: "\e602";
+}
+.icon-list:before {
+    content: "\e616";
+}
+.icon-student:before {
+    content: "\e63d";
+}
+.icon-biyan:before {
+    content: "\e605";
+}
+.icon-jifen:before {
+    content: "\e637";
+}
+.icon-qunzu:before {
+    content: "\e63a";
+}
+.icon-click:before {
+    content: "\e630";
+}
+.icon-baoming:before {
+    content: "\e617";
+}
+.icon-banji:before {
+    content: "\e60a";
+}
+.icon-phone:before {
+    content: "\e633";
+}
+.icon-lianjie:before {
+    content: "\e631";
+}
+.icon-bumen:before {
+    content: "\e638";
+}
+.icon-user2:before {
+    content: "\e60c";
+}
+.icon-ungroup:before {
+    content: "\e629";
+}
+.icon-upload2:before {
+    content: "\e62f";
+}
+.icon-change:before {
+    content: "\e628";
+}
+.icon-user-edit:before {
+    content: "\e62b";
+}
+.icon-change2:before {
+    content: "\e62d";
+}
+.icon-create:before {
+    content: "\e62c";
+}
+.icon-yaoqing:before {
+    content: "\e62a";
+}
+.icon-jiarubanji:before {
+    content: "\e62e";
+}
+.icon-arrowup:before {
+    content: "\e63b";
+}
+.icon-arrowdown:before {
+    content: "\e63c";
+}
+.icon-qun:before {
+    content: "\e63e";
+}
+.icon-arrowup:before {
+    content: "\e63b";
+}
+.icon-arrowdown:before {
+    content: "\e63c";
+}
+//颜色变量
+@font-color-green: #50a934;
+@color-green: #53ab38;
+@color-grey: #8e8e93; //在校
+@color-at_school: #3ecd73; //离校
+@color-leave_school: #17c3f5; //请假
+@color-ask_for_leave: #ff7a69; //未到校
+@color-cut_school: #b0b0ba;
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+a {
+    color: @color-green;
+}
+.hide,
+.hidden {
+    display: none;
+}
+//flex布局
+.ui-row-flex {
+    display: -webkit-box;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    .ui-col {
+        float: none;
+        -webkit-box-flex: 1;
+        width: 0;
+    }
+}
+.mui-content {
+    height: 100%;
+}
+.mui-btn-primary {
+    background-color: @color-green;
+    border: 1px solid @color-green;
+}
+.mui-content-padded {
+    margin: 15px;
+}
+.mui-toast-message {
+    background-color: rgba(0,0,0,.4);
+    color: #fff;
+}
+.get-auth-code {
+    position: absolute;
+    display: block;
+    right: 15px;
+    height: 32px;
+    text-align: center;
+    padding: 0 10px;
+    float: none;
+    top: 33px;
+    background-color: #eef2ec;
+    border: none;
+    border-radius: 15px;
+    color: @font-color-green;
+    &:enabled:active {
+        color: #fff;
+        background-color: @color-green;
+    }
+    &:disabled {
+        color: @color-grey;
+    }
+}
+.mui-input-row .mui-input-clear~.mui-icon-clear,
+.mui-input-row .mui-input-password~.mui-icon-eye,
+.mui-input-row .mui-input-speech~.mui-icon-speech {
+    right: 15px;
+}
+.mui-input-row .mui-input-clear~.mui-icon-clear.mui-active,
+.mui-input-row .mui-input-password~.mui-icon-eye.mui-active,
+.mui-input-row .mui-input-speech~.mui-icon-speech.mui-active {
+    color: #308715;
+}
+.mui-bar-tab .mui-tab-item {
+    color: #666;
+    &.mui-active {
+        color: @font-color-green;
+    }
+}
+//微信客户端隐藏顶部导航
+.mui-wechat {
+    header.mui-bar {
+        display: none;
+    }
+    .mui-bar-nav~.mui-content {
+        padding-top: 0;
+    }
+    .mui-content>.mui-table-view:first-child {
+        margin-top: 0;
+    }
+}
+//学生名字标签，用于点名、首页、考勤页面查看学生列表
+.mui-student {
+    font-size: 12px;
+    line-height: 1;
+    display: inline-block;
+    padding: 3px 6px;
+    color: #fff;
+    border-radius: 100px;
+    background-color: @color-cut_school;
+    margin: 10px;
+    &.at_school {
+        background-color: @color-at_school;
+    }
+    &.leave_school {
+        background-color: @color-leave_school;
+    }
+    &.ask_for_leave {
+        background-color: @color-ask_for_leave;
+    }
+    &.cut_school {
+        background-color: @color-cut_school;
+    }
+}
+//图文列表--用于消息列表、请假、考试、作业列表，各个模块可以根据需要修改
+.mui-table-view {
+    .mui-media {
+        [class^=icon-] {
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            float: left;
+            font-size: 24px;
+            text-align: center;
+            background-color: @color-green;
+            border-radius: 25px;
+            color: #fff;
+            margin-right: 10px;
+            position: relative;
+            .mui-badge {
+                font-size: 10px;
+                line-height: 1.4;
+                position: absolute;
+                top: -2px;
+                left: 100%;
+                margin-left: -12px;
+                padding: 1px 5px;
+                color: #fff;
+                background: red;
+            }
+        }
+        .mui-media-time {
+            font-size: 12px;
+            color: #8f8f94;
+            position: absolute;
+            right: 15px;
+            top: 11px;
+        }
+        .default-avatar {
+            background-color: #efeff4;
+            color: #d4d4dc;
+        }
+    }
+    .mui-media-object {
+        line-height: 50px;
+        height: 50px;
+        max-width: 50px;
+        &.load {
+            border-radius: 25px;
+            width: 50px;
+        }
+    }
+}
