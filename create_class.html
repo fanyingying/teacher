@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title></title>
     <script src="js/mui/mui.min.js"></script>
 
     <script type="text/javascript" src="js/city.data-3.js" ></script>
     <script type="text/javascript" src="js/mui.picker.min.js" ></script>
     <script type="text/javascript" src="js/mui.poppicker.js" ></script>
+    <!--<script type="text/javascript" src="js/uploade_img.js" ></script>-->
+    
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/classes.css" rel="stylesheet"/>
@@ -19,8 +23,7 @@
       	(function($, doc) {
 				$.init();
 				$.ready(function() {
-					//-----------------------------------------
-					//					//级联示例
+					//省市区3级联动
 					var cityPicker3 = new $.PopPicker({
 						layer: 3
 					});
@@ -30,10 +33,10 @@
 					showCityPickerButton.addEventListener('tap', function(event) {
 						cityPicker3.show(function(items) {
 							showCityPickerButton.innerText = (items[0] || {}).text + "  " + (items[1] || {}).text + "  " + (items[2] || {}).text;
-							//返回 false 可以阻止选择框的关闭
-							//return false;
 						});
 					}, false);
+					
+					
 				});
 			})(mui, document);
       	
@@ -50,13 +53,7 @@
 	    	<li class="ul_li_header"><span class="left_line"></span>学校名称</li>
 	    	<li class="ul_li_body">
 	    		<div class="mui-input-row mui-search">
-					<input type="search" class="mui-input-clear" placeholder="" data-input-clear="1" data-input-search="1">
-					<span class="mui-icon mui-icon-clear mui-hidden"></span>
-					<span class="mui-placeholder">
-						<span class="mui-icon mui-icon-search"></span>
-						<span>请输入学校名称</span>
-					</span>
-					
+					<input type="search" class="mui-input-clear" placeholder="请输入学校名称">
 				</div>
 				<span class="mui-btn mui-btn-success">
 					搜索
@@ -94,10 +91,16 @@
 		<ul>
 	    	<li class="ul_li_header"><span class="left_line"></span>图片<i class="icon-upload"></i></li>
 	    	<li class="ul_li_body">
-	    		<p class="photo_msg">说明：请上传学校照片以供管理员验证，学校门口照片、组织机构代码证等均可。 </p>
+	    		<p class="li_body_msg">说明：请上传学校照片以供管理员验证，学校门口照片、组织机构代码证等均可。 </p>
+	    		 <div class="mui-content">
+		            <div class="showimg">
+		
+		            </div>
+		            
+		        </div>
 	    	</li>
 	    </ul>
-	    <div class="mui-content-padded">
+	    <div class="mui-content-padded margin_t_35">
 	    	<button id="login" class="mui-btn mui-btn-block mui-btn-primary">完成创建</button>
 	    	
 	    </div>
