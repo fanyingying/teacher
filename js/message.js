@@ -31,7 +31,7 @@
 	 */
 	owner.pulldownRefresh = function(params) {
 		owner.getList(params, function(err) {
-			mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+			//mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
 			if (err) {
 				mui.toast(err);
 				return;
@@ -50,7 +50,7 @@
 				//下拉刷新，新纪录插到最前面；
 				table.insertBefore(li, table.firstChild);
 			}
-			mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+			//mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
 		}, 1500);
 	};
     count = 0;

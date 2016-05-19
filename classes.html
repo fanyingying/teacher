@@ -7,7 +7,7 @@
 		<title>班级</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
-		<link href="css/account.css" rel="stylesheet" />
+		<link href="css/classes.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -32,30 +32,65 @@
 				<span class="mui-tab-label">个人</span>
 			</a>
 		</nav>
-        <div class="mui-content">
-        	<div class="title-tips">
-        		<span class="left_line"></span>
-        		<span class="text">学生</span>
-        		<a href="javascript:;" class="mui-icon mui-icon-plusempty add-student"></a>
-        	</div>
-        	<div class="student-list mui-border-b">
-        	    <ul>
-        	    	<li><span class="mui-student">张三丰</span></li>
-        	    	<li><span class="mui-student">张三丰</span></li>
-        	    	<li><span class="mui-student">张三李四</span></li>
-        	    	<li><span class="mui-student">张三李四赵武</span></li>
-        	    	<li><span class="mui-student at_school">张三丰</span></li>
-        	    	<li><span class="mui-student cut_school">张三丰</span></li>
-        	    	<li><span class="mui-student leave_school">张三李四</span></li>
-        	    	<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
-        	    	<li><span class="mui-student at_school">张三丰</span></li>
-        	    	<li><span class="mui-student cut_school">张三丰</span></li>
-        	    	<li><span class="mui-student leave_school">张三李四</span></li>
-        	    	<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
-        	    </ul>
-        	    
-        	</div>
-        </div>
+		<div class="mui-content">
+			<div class="title-tips">
+				<span class="left_line"></span>
+				<span class="text">学生</span>
+				<a href="javascript:;" class="mui-icon mui-icon-plusempty" id="add-student"></a>
+			</div>
+			<div class="student-list">
+				<ul class="mui-border-b">
+					<li><span class="mui-student">张三丰</span></li>
+					<li><span class="mui-student">张三丰</span></li>
+					<li><span class="mui-student">张三李四</span></li>
+					<li><span class="mui-student">张三李四赵武</span></li>
+					<li><span class="mui-student at_school">张三丰</span></li>
+					<li><span class="mui-student cut_school">张三丰</span></li>
+					<li><span class="mui-student leave_school">张三李四</span></li>
+					<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+					<li><span class="mui-student at_school">张三丰</span></li>
+					<li><span class="mui-student cut_school">张三丰</span></li>
+					<li><span class="mui-student leave_school">张三李四</span></li>
+					<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+					<li><span class="mui-student">张三李四</span></li>
+					<li><span class="mui-student">张三李四赵武</span></li>
+					<li><span class="mui-student at_school">张三丰</span></li>
+					<li><span class="mui-student cut_school">张三丰</span></li>
+					<li><span class="mui-student leave_school">张三李四</span></li>
+					<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+					<li><span class="mui-student at_school">张三丰</span></li>
+					<li><span class="mui-student cut_school">张三丰</span></li>
+					<li><span class="mui-student leave_school">张三李四</span></li>
+					<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+					<li><span class="mui-student cut_school">张三丰</span></li>
+					<li><span class="mui-student leave_school">张三李四</span></li>
+					<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+				</ul>
+				<div class="show-more">
+					<span class="mui-icon mui-icon-arrowdown"></span>
+					<span class="text">点击查看更多</span>
+				</div>
+			</div>
+			<div class="title-tips">
+				<span class="left_line"></span>
+				<span class="text">教师</span>
+				<a href="javascript:;" class="mui-icon mui-icon-plusempty" id="add-teacher"></a>
+			</div>
+			<div class="teacher-list">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" data-id="1">刘晓娜</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" data-id="2">范莹莹</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" data-id="3">陈显宇</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
 		<script src="js/mui/mui.js"></script>
 		<script src="js/common.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -65,7 +100,48 @@
 					statusBarBackground: '#fafafa'
 				});
 				mui.ready(function() {
+					var addStudentBtn = document.getElementById("add-student");
+					var addTeacherBtn = document.getElementById("add-teacher");
+					var showMoreBtn = document.querySelector('.show-more');
+					//底部导航点击事件
 					common.tabBottom();
+					//点击查看更多
+					common.showMore(doc.querySelector('.student-list ul'), 6);
+					//添加学生操作
+					addStudentBtn.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'student/add_student.html',
+							id: 'forget_password',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+					//添加教师操作
+					addTeacherBtn.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'teacher/add_teacher.html',
+							id: 'forget_password',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+					//教师列表点击事件
 				});
 			}(mui, document));
 		</script>

@@ -225,6 +225,12 @@ a {
 .hidden {
   display: none;
 }
+.mui-border-b,
+.mui-border-t,
+.mui-border-l,
+.mui-border-r {
+  position: relative;
+}
 .mui-border-b:after {
   position: absolute;
   right: 0;
@@ -371,15 +377,24 @@ a {
   transform: scaleY(0.5);
   background-color: #e6e6e6;
 }
+.title-tips .mui-icon {
+  position: absolute;
+  right: 15px;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 28px;
+}
 .student-list {
   background-color: #ffffff;
   padding: 8px 15px;
+  margin-bottom: 10px;
 }
 .student-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
   overflow: hidden;
+  min-height: 228px;
 }
 .student-list ul li {
   width: 25%;
@@ -463,4 +478,28 @@ a {
 .mui-table-view .mui-media-object.load {
   border-radius: 25px;
   width: 50px;
+}
+.show-more {
+  text-align: center;
+  color: #8e8e93;
+  font-size: 14px;
+  line-height: 35px;
+}
+.show-more .mui-icon {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+}
+.show-more.show .mui-icon {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
 }
