@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>班级</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 id="title" class="mui-title">班级</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab classes">
+			<a class="mui-tab-item" href="message.html">
+				<span class="mui-icon iconfont icon-xiaoxi"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item  mui-active" href="classes.html">
+				<span class="mui-icon iconfont icon-banji"></span>
+				<span class="mui-tab-label">班级1</span>
+			</a>
+			<a class="mui-tab-item" href="function.html">
+				<span class="mui-icon iconfont icon-function"></span>
+				<span class="mui-tab-label">功能</span>
+			</a>
+			<a class="mui-tab-item" href="account.html">
+				<span class="mui-icon iconfont icon-user"></span>
+				<span class="mui-tab-label">个人</span>
+			</a>
+		</nav>
+        <div class="mui-content">
+        	<div class="title-tips">
+        		<span class="left_line"></span>
+        		<span class="text">学生</span>
+        		<a href="javascript:;" class="mui-icon mui-icon-plusempty add-student"></a>
+        	</div>
+        	<div class="student-list mui-border-b">
+        	    <ul>
+        	    	<li><span class="mui-student">张三丰</span></li>
+        	    	<li><span class="mui-student">张三丰</span></li>
+        	    	<li><span class="mui-student">张三李四</span></li>
+        	    	<li><span class="mui-student">张三李四赵武</span></li>
+        	    	<li><span class="mui-student at_school">张三丰</span></li>
+        	    	<li><span class="mui-student cut_school">张三丰</span></li>
+        	    	<li><span class="mui-student leave_school">张三李四</span></li>
+        	    	<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+        	    	<li><span class="mui-student at_school">张三丰</span></li>
+        	    	<li><span class="mui-student cut_school">张三丰</span></li>
+        	    	<li><span class="mui-student leave_school">张三李四</span></li>
+        	    	<li><span class="mui-student ask_for_leave">张三李四赵武</span></li>
+        	    </ul>
+        	    
+        	</div>
+        </div>
+		<script src="js/mui/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			(function($, doc) {
+				//mui初始化
+				mui.init({
+					statusBarBackground: '#fafafa'
+				});
+				mui.ready(function() {
+					common.tabBottom();
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>教师助手-登录</title>
+		<title>登录</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
 		<link href="css/account.css" rel="stylesheet" />
@@ -39,23 +39,21 @@
 		</div>
 		<script src="js/mui/mui.min.js"></script>
 		<script src="js/mui/mui.enterfocus.js"></script>
+		<script src="js/config.js"></script>
 		<script src="js/user.js"></script>
 		<script>
 			(function($, doc) {
 				$.init({
-					statusBarBackground: '#fafafa' 
+					statusBarBackground: '#fafafa'
 				});
-				$.ready(function() {
-					if(mui.os.wechat){ 
-						//微信客户端隐藏顶部导航栏
-					   mui('header.mui-bar')[0].classList.add('hide');
-					} 
+				$.ready(function() { 
 					var settings = user.getSettings();
 					var state = user.getState();
 					var toMain = function() {
-						var url = 'index.html';
+						//TODO 判断是否是app  app跳转到main.html
+						var url = 'classes.html';
 						//判断是否设置了班级
-						if(false){
+						if (false) {
 							url = 'settingClass.html';
 						}
 						mui.openWindow({
@@ -94,10 +92,9 @@
 							toMain();
 						});
 					});
-				    $.enterfocus('#login-form input', function() {
+					$.enterfocus('#login-form input', function() {
 						$.trigger(loginButton, 'tap');
 					});
-					
 					//点击注册
 					regButton.addEventListener('tap', function(event) {
 						$.openWindow({
@@ -118,7 +115,7 @@
 					//点击忘记密码
 					forgetButton.addEventListener('tap', function(event) {
 						$.openWindow({
-							url: 'user/forget_password.html',
+							url: 'account/forget_password.html',
 							id: 'forget_password',
 							preload: true,
 							show: {
@@ -132,11 +129,8 @@
 							}
 						});
 					}, false);
-					 
 				});
-				
 				$.plusReady(function() {
-					 
 					//
 					var backButtonPress = 0;
 					$.back = function(event) {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人中心</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/account.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav"> 
+			<h1 id="title" class="mui-title">个人中心</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab account">
+			<a class="mui-tab-item" href="message.html" id="message">
+				<span class="mui-icon iconfont icon-xiaoxi"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item" href="classes.html" id="classes">
+				<span class="mui-icon iconfont icon-banji"></span>
+				<span class="mui-tab-label">班级</span>
+			</a>
+			<a class="mui-tab-item" href="function.html" id="function">
+				<span class="mui-icon iconfont icon-function"></span>
+				<span class="mui-tab-label">功能</span>
+			</a>
+			<a class="mui-tab-item  mui-active" href="account.html" id="account">
+				<span class="mui-icon iconfont icon-user"></span>
+				<span class="mui-tab-label">个人1</span>
+			</a>
+		</nav>
+
+		<script src="js/mui/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			(function($, doc) {
+				//mui初始化
+				mui.init({
+					statusBarBackground: '#fafafa' 
+				});
+				mui.ready(function() {
+					common.tabBottom();
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

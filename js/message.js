@@ -38,6 +38,8 @@
 			}
 			
 		});
+		
+		//测试效果
 		setTimeout(function() {
 			var table = document.body.querySelector('.mui-table-view');
 			var cells = document.body.querySelectorAll('.mui-table-view-cell');
@@ -51,16 +53,17 @@
 			mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
 		}, 1500);
 	};
-	var count = 0;
+    count = 0;
 	/**
 	 * 上拉加载具体业务实现
 	 */
 	owner.pullupRefresh = function() {
+	   
 		setTimeout(function() {
 			mui('#refreshContainer').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
 			var table = document.body.querySelector('.mui-table-view');
 			var cells = document.body.querySelectorAll('.mui-table-view-cell');
-			for (var i = cells.length, len = i + 20; i < len; i++) {
+			for (var i = cells.length, len = i + 1; i < len; i++) {
 				var li = document.createElement('li');
 				li.className = 'mui-table-view-cell';
 				li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
