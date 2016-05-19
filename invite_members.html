@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <script src="js/mui/mui.min.js"></script>
+
+    <script type="text/javascript" src="js/city.data-3.js" ></script>
+    <script type="text/javascript" src="js/mui.picker.min.js" ></script>
+    <script type="text/javascript" src="js/mui.poppicker.js" ></script>
+    <!--<script type="text/javascript" src="js/uploade_img.js" ></script>-->
+    
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/classes.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/mui.picker.css" />
+    <link rel="stylesheet" href="css/mui.poppicker.css" />
+    <script type="text/javascript" charset="UTF-8">
+      	(function($, doc) {
+				$.init();
+				$.ready(function() {
+				
+					
+				});
+			})(mui, document);
+      	
+    </script>
+</head>
+<body class="classes">
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">邀请成员</h1>
+	</header>
+	
+	<div class="mui-content">
+		<p class="mui_content_p">加入方式</p>
+	    <ul>
+	    	<li class="ul_li_header"><span class="left_line"></span><span class="join_way">方式一：</span>班级编号</li>
+	    	<li class="ul_li_body padding_0">
+	    		<p class="li_body_msg">
+	    			每个班级拥有唯一班级编号，家长可以关注“学易微校园”服务号，教师可关注“教师助手”服务号，根据提示输入班级编号加入班级 
+	    		</p>
+	    		<p class="li_body_footer">
+	    			班级编号：<font class="class_num" color="#f74c31">04530209</font>
+	    		</p>
+	    	</li>
+	    </ul>
+	    <ul>
+	    	<li class="ul_li_header"><span class="left_line"></span><span class="join_way">方式二：</span>扫描二维码</li>
+	    	<li class="ul_li_body align_center">
+	    		<p class="li_body_msg align_left">教师助手为每个班级单独创建一个二维码。 教师请扫描下方“教师助手”二维码   </p>
+	    		<div class="code_img">
+	    			<span class="code_img_title"><font color="#50a934">“教师助手”</font>二维码</span>
+	    			<img src="img/code_img.jpg" width="120" height="120"/>
+	    		</div>
+	    		<p class="li_body_msg align_left border_t padding_t_25">家长请扫描下方“学易微校园”二维码 </p>
+	    		<div class="code_img margin_b_40">
+	    			<span class="code_img_title"><font color="#f74c31">“学易微校园”</font>二维码</span>
+	    			<img src="img/code_school.jpg" width="120" height="120"/>
+	    		</div>
+	    	</li>
+	    </ul>
+		<ul class="last">
+	    	<li class="ul_li_header"><span class="left_line"></span><span class="join_way">方式三：</span>班级链接</li>
+	    	<li class="ul_li_body">
+	    		<p class="li_body_msg">教师可以将自动创建的班级链接通过微信、短信等形式发送给家长，家长点击后可以自动加入该班级  </p>
+	    		 <p class="link_msg">
+	    		 	<img src="img/link.jpg" width="26" height="26" />
+	    		 	<a href="javascript:;"><font color="#f36c5a">高一八班链接</font></a>
+	    		 </p>
+	    		
+	    	</li>
+	    </ul>
+
+	    <button id="join_class" class="mui-btn mui-btn-block mui-btn-primary">进入班级</button>
+	    	
+
+
+	</div>
+</body>
+</html>
