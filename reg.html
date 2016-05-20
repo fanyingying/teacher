@@ -51,6 +51,7 @@
 		</div>
 		<script src="js/mui/mui.min.js"></script>
 		<script src="js/utils.js"></script>
+		<script src="js/config.js"></script>
 		<script src="js/user.js"></script>
 		<script>
 			(function($, doc) {
@@ -58,10 +59,7 @@
 					statusBarBackground: '#fafafa'
 				});
 				$.ready(function() {  
-					if(mui.os.wechat){ 
-						//微信客户端隐藏顶部导航栏
-					   mui('header.mui-bar')[0].classList.add('hide');
-					} 
+					 
 					var regButton = doc.getElementById('reg');
 					var btnCode = doc.getElementById('btnCode');
 					var accountBox = doc.getElementById('account');
@@ -75,17 +73,8 @@
 						};
 						user.reg(regInfo, function(err) {
 							if (err) {
-								mui.toast(err);
-								return;
-							}
-							mui.toast('注册成功');
-							$.openWindow({
-								url: 'login.html',
-								id: 'login',
-								show: {
-									aniShow: 'pop-in'
-								}
-							});
+								mui.toast(err); 
+							} 
 						});
 					});
 					btnCode.addEventListener('tap', function(event) {
@@ -98,7 +87,7 @@
 								return;
 							}
 							//发送验证码
-							user.sendCode(btnCode);
+							user.sendCode(btnCode,regInfo);
 						});
 					});
 				});

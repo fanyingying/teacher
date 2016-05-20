@@ -220,6 +220,11 @@
 @color-leave_school: #17c3f5; //请假
 @color-ask_for_leave: #ff7a69; //未到校
 @color-cut_school: #b0b0ba;
+@font-color-white: #fff;
+@font-color-333: #333;
+@font-color-666: #666;
+@font-color-f2: #f2f2f2;
+@font-color-e6: #e6e6e6;
 body {
     width: 100%;
     height: 100%;
@@ -233,6 +238,57 @@ a {
 .hide,
 .hidden {
     display: none;
+}
+//边框效果
+.mui-border-b,
+.mui-border-t,
+.mui-border-l,
+.mui-border-r {
+    position: relative;
+}
+.mui-border-b:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    background-color: @font-color-e6;
+}
+.mui-border-t:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    background-color: @font-color-e6;
+}
+.mui-border-l:after {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 1px;
+    content: '';
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    background-color: @font-color-e6;
+}
+.mui-border-r:after {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 1px;
+    content: '';
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    background-color: @font-color-e6;
 }
 //flex布局
 .ui-row-flex {
@@ -296,6 +352,10 @@ a {
         color: @font-color-green;
     }
 }
+//下拉刷新
+.mui-pull {
+    font-weight: normal;
+}
 //微信客户端隐藏顶部导航
 .mui-wechat {
     header.mui-bar {
@@ -308,16 +368,79 @@ a {
         margin-top: 0;
     }
 }
-//学生名字标签，用于点名、首页、考勤页面查看学生列表
+//标题  --左侧有绿色边框的 用于创建班级、邀请成员等页面
+.title-tips {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: @font-color-666;
+    background-color: @font-color-white;
+    .left_line {
+        width: 4px;
+        height: 24px;
+        vertical-align: top;
+        background-color: #50a934;
+        border-radius: 4px;
+        display: inline-block;
+        margin-left: 15px;
+        margin-top: 9px;
+    }
+    .text {}
+    &:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: @font-color-e6;
+    }
+    //右侧的操作按钮
+    .mui-icon {
+        position: absolute;
+        right: 15px;
+        line-height: 40px;
+        font-weight: bold;
+        font-size: 28px;
+    }
+}
+//学生名字标签，用于点名、班级首页、考勤页面查看学生列表
+.student-list {
+    background-color: @font-color-white;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        min-height: 228px;
+        li {
+            width: 25%;
+            text-align: center;
+            float: left;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            padding-bottom: 10px;
+        }
+    }
+}
 .mui-student {
-    font-size: 12px;
-    line-height: 1;
+    font-size: 15px;
+    line-height: 28px;
     display: inline-block;
-    padding: 3px 6px;
+    text-align: center;
     color: #fff;
-    border-radius: 100px;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 72px;
     background-color: @color-cut_school;
-    margin: 10px;
     &.at_school {
         background-color: @color-at_school;
     }
@@ -329,6 +452,15 @@ a {
     }
     &.cut_school {
         background-color: @color-cut_school;
+    }
+}
+@media screen and (max-width: 320px) {
+    .student-list {
+        ul {
+            li {
+                width: 33.3333%;
+            }
+        }
     }
 }
 //图文列表--用于消息列表、请假、考试、作业列表，各个模块可以根据需要修改
@@ -377,6 +509,33 @@ a {
         &.load {
             border-radius: 25px;
             width: 50px;
+        }
+    }
+}
+//点击查看更多
+.show-more {
+    text-align: center;
+    color: @color-grey;
+    font-size: 14px;
+    line-height: 35px;
+    .mui-icon {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition-duration: 300ms;
+        transition-duration: 300ms;
+    }
+    &.show {
+        .mui-icon {
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+            -webkit-transition-duration: 300ms;
+            transition-duration: 300ms;
         }
     }
 }

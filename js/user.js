@@ -1,7 +1,5 @@
 /**
- * 演示程序当前的 “注册/登录” 等操作，是基于 “本地存储” 完成的
- * 当您要参考这个演示程序进行相关 app 的开发时，
- * 请注意将相关方法调整成 “基于服务端Service” 的实现。
+ * 演示程序当前的 “注册/登录” 等操作 
  **/
 (function($, owner) {
 	/**
@@ -18,20 +16,12 @@
 		if (loginInfo.password.length < 6) {
 			return callback('密码最短为 6 个字符');
 		}
-		mui.ajax('', {
-			data: loginInfo,
-			dataType: 'json', //服务器返回json格式数据
-			type: 'post', //HTTP请求类型
-			timeout: 10000, //超时时间设置为10秒；
-			success: function(data) {
+		config.getAjaxByParm({
+			'url': 'userLogin',
+			'data': loginInfo,
+			'success': function(data) {
 				//服务器返回响应，根据响应结果，分析是否登录成功；
 				owner.createState(loginInfo.account, callback);
-			},
-			error: function(xhr, type, errorThrown) {
-				owner.createState(loginInfo.account, callback);
-				//异常处理；
-				/*console.log(type);
-				return callback('用户名或密码错误');*/
 			}
 		});
 	};
@@ -52,16 +42,30 @@
 		regInfo = regInfo || {};
 		regInfo.account = regInfo.account || '';
 		regInfo.password = regInfo.password || '';
-
+		//TODO 更多参数
 		if (regInfo.account.length < 5) {
 			return callback('用户名最短需要 5 个字符');
 		}
 		if (regInfo.password.length < 6) {
 			return callback('密码最短需要 6 个字符');
 		}
-		if (!checkEmail(regInfo.email)) {
-			return callback('邮箱地址不合法');
-		}
+		//TODO 姓名验证？ 
+		config.getAjaxByParm({
+			'url': 'userReg',
+			'data': regInfo,
+			'success': function(data) {
+
+				mui.toast('注册成功');
+				$.openWindow({
+					url: 'login.html',
+					id: 'login',
+					show: {
+						aniShow: 'pop-in'
+					}
+				});
+			}
+		});
+
 		var users = JSON.parse(localStorage.getItem('$users') || '[]');
 		users.push(regInfo);
 		localStorage.setItem('$users', JSON.stringify(users));
@@ -79,19 +83,13 @@
 		if (!/^1(3|5|7|8|4)\d{9}$/.test(regInfo.account)) {
 			return callback('请输入有效的手机号码！');
 		}
-		mui.ajax('', {
-			data: regInfo,
-			dataType: 'json', //服务器返回json格式数据
-			type: 'post', //HTTP请求类型
-			timeout: 10000, //超时时间设置为10秒；
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析账户是否可以注册；
-
-			},
-			error: function(xhr, type, errorThrown) {
-				//异常处理；
-				console.log(type);
+		config.getAjaxByParm({
+			'url': 'checkUser',
+			'data': regInfo,
+			'success': function(data) {
+				//TODO 根据状态返回不同的提示
 				return callback('该手机已被注册');
+				return callback();
 			}
 		});
 	}
@@ -99,7 +97,7 @@
 	/**
 	 *发送验证码 
 	 */
-	owner.sendCode = function(btnCode, second) {
+	owner.sendCode = function(btnCode,params, second) {
 		second = second || 60;
 		btnCode.setAttribute("disabled", "disabled");
 		var interval = setInterval(function() {
@@ -113,6 +111,16 @@
 			btnCode.innerHTML = '{0}秒后重新发送'.format(second);
 			second--;
 		}, 1000);
+		//TODO ajax发送验证码
+		config.getAjaxByParm({
+			'url': 'sendCode',
+			'data': params,
+			'success': function(data) {
+				//TODO 根据状态返回不同的提示
+				return callback('该手机已被注册');
+				return callback();
+			}
+		});
 		mui.toast("发送成功");
 	}
 
@@ -143,36 +151,25 @@
 	/**
 	 * 找回密码
 	 **/
-	owner.forgetPassword = function(regInfo, callback) {
+	owner.findPassword = function(regInfo, callback) {
 		callback = callback || $.noop;
 		regInfo = regInfo || {};
 		regInfo.account = regInfo.account || '';
 		regInfo.code = regInfo.code || '';
 		regInfo.password = regInfo.password || '';
 		//TODO 用户输入验证
-		mui.ajax('', {
-			data: regInfo,
-			dataType: 'json', //服务器返回json格式数据
-			type: 'post', //HTTP请求类型
-			timeout: 10000, //超时时间设置为10秒；
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析账户是否可以重置密码；
-				$.openWindow({
-					url: 'reset_password.html',
-					id: 'login',
-					show: {
-						aniShow: 'pop-in'
-					}
-				});
-			},
-			error: function(xhr, type, errorThrown) {
-				//异常处理；
-				console.log(type);
-				return callback('错误提示');
+		
+		config.getAjaxByParm({
+			'url': 'findPassword',
+			'data': regInfo,
+			'success': function(data) {
+				//TODO 根据状态返回不同的提示
+				return callback('注册成功！');
+				return callback();
 			}
-		});
+		}); 
 	};
- 
+
 	/**
 	 * 获取应用本地配置
 	 **/

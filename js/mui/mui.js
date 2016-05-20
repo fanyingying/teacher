@@ -6093,18 +6093,18 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 				break;
 			} else if (segmentedControl.classList.contains(CLASS_TAB_BAR)) {
 				activeTab = segmentedControl.querySelector(classSelector + '.' + CLASS_TAB_ITEM);
+				
 			}
 		}
 
 		if (activeTab) {
 			activeTab.classList.remove(className);
-		}
-
+		} 
 		var isLastActive = targetTab === activeTab;
 		if (targetTab) {
 			targetTab.classList.add(className);
-		}
-
+		} 
+		 
 		if (!targetTab.hash) {
 			return;
 		}
